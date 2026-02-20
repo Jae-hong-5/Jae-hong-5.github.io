@@ -50,7 +50,7 @@
         }
 
         /* --- Global Background Grid --- */
-        .grid-bg {
+        .background__grid {
             position: fixed;
             top: 0;
             left: 0;
@@ -75,6 +75,14 @@
             letter-spacing: -0.03em;
         }
 
+        h4 {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
         p {
             line-height: 1.7;
             color: var(--text-muted);
@@ -83,13 +91,13 @@
             max-width: 60ch;
         }
 
-        .accent-text {
+        .text--accent {
             color: var(--accent);
             text-shadow: 0 0 20px var(--accent-glow);
         }
 
         /* --- Custom Cursor --- */
-        .cursor-dot { transform: translate(-50%, -50%);
+        .cursor__dot { transform: translate(-50%, -50%);
             width: 6px;
             height: 6px;
             background-color: var(--accent);
@@ -102,7 +110,7 @@
             box-shadow: 0 0 10px var(--accent);
         }
 
-        .cursor-outline { transform: translate(-50%, -50%);
+        .cursor__outline { transform: translate(-50%, -50%);
             width: 40px;
             height: 40px;
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -115,7 +123,7 @@
             transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
         }
 
-        body:hover .cursor-outline { transform: translate(-50%, -50%); opacity: 1; }
+        body:hover .cursor__outline { transform: translate(-50%, -50%); opacity: 1; }
 
         /* --- Layout --- */
         section {
@@ -128,20 +136,43 @@
             position: relative;
         }
 
-        .container {
+        .layout__container {
             max-width: 1600px;
             margin: 0 auto;
             width: 100%;
         }
 
+        /* --- Component Helpers (BEM) --- */
+        .u-reveal--delay-100 { transition-delay: 0.1s; }
+        .u-reveal--delay-200 { transition-delay: 0.2s; }
+        .u-reveal--delay-400 { transition-delay: 0.4s; }
+        .hero__intro { margin-top: 2rem; }
+        .hero__lastname { margin-top: -0.2em; }
+        .hero__highlight { color: var(--text-main); }
+        .about__terminal-highlight { color: var(--accent); }
+        .skills__heading {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .experience__heading {
+            color: var(--accent);
+            margin-bottom: 3rem;
+        }
+        .footer__meta {
+            margin-top: auto;
+            padding-top: 4rem;
+            opacity: 0.3;
+            font-size: 0.8rem;
+        }
+
         /* --- Animations --- */
-        .fade-in-up {
+        .u-reveal {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1s ease, transform 1s var(--easing);
         }
         
-        .fade-in-up.visible {
+        .u-reveal.u-reveal--visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -152,20 +183,21 @@
             padding-top: 20vh;
         }
 
-        .hero-title-wrapper {
+        .hero__title-wrapper {
             position: relative;
             margin-bottom: 2rem;
             z-index: 2;
         }
 
-        .hero h1 {
+        .hero__name {
             font-size: clamp(2.8rem, 9vw, 7rem);
             mix-blend-mode: exclusion;
             color: var(--text-main);
             position: relative;
+            white-space: nowrap;
         }
         
-        .hero h1::after {
+        .hero__name::after {
             content: attr(data-text);
             position: absolute;
             left: 4px;
@@ -176,9 +208,11 @@
             opacity: 0.5;
         }
 
-        .hero-subtitle {
+        .hero__subtitle,
+        .footer__subtitle {
             font-size: clamp(1rem, 2vw, 1.4rem);
             color: var(--accent);
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.15em;
             margin-bottom: 4rem;
@@ -187,7 +221,8 @@
             gap: 1.5rem;
         }
 
-        .hero-subtitle::before {
+        .hero__subtitle::before,
+        .footer__subtitle::before {
             content: '';
             width: 40px;
             height: 2px;
@@ -196,7 +231,7 @@
         }
 
         /* --- Floating Tech Elements --- */
-        .tech-orb {
+        .background__orb {
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
@@ -205,7 +240,7 @@
             z-index: -1;
         }
         
-        .orb-1 {
+        .background__orb--primary {
             top: 20%;
             right: 10%;
             width: 400px;
@@ -214,7 +249,7 @@
             animation: float 10s ease-in-out infinite;
         }
 
-        .orb-2 {
+        .background__orb--secondary {
             bottom: 10%;
             left: -10%;
             width: 600px;
@@ -229,23 +264,24 @@
         }
 
         /* --- About --- */
-        .about-layout {
+        .about__layout {
             display: grid;
             grid-template-columns: 2fr 1.5fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .big-statement {
+        .about__statement {
             font-size: clamp(2rem, 4vw, 3.5rem);
             line-height: 1.1;
             font-family: var(--font-display);
             margin-bottom: 2rem;
         }
 
-        .code-snippet {
+        .about__terminal {
             font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
+            font-size: 0.96rem;
+            font-weight: 600;
             color: var(--accent);
             background: rgba(0, 0, 0, 0.3);
             padding: 1.5rem;
@@ -253,7 +289,7 @@
             position: relative;
         }
         
-        .code-snippet::before {
+        .about__terminal::before {
             content: '// System Architecture';
             position: absolute;
             top: -10px;
@@ -265,7 +301,7 @@
         }
 
         /* --- Skills Grid --- */
-        .skills-grid {
+        .skills__grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2px;
@@ -274,7 +310,7 @@
             margin-top: 4rem;
         }
 
-        .skill-card {
+        .skills__card {
             background: var(--bg-color);
             padding: 2.5rem;
             transition: background 0.3s;
@@ -282,11 +318,11 @@
             overflow: hidden;
         }
 
-        .skill-card:hover {
+        .skills__card:hover {
             background: var(--bg-grid);
         }
 
-        .skill-card::after {
+        .skills__card::after {
             content: '';
             position: absolute;
             top: 0;
@@ -299,18 +335,18 @@
             transition: transform 0.4s var(--easing);
         }
 
-        .skill-card:hover::after {
+        .skills__card:hover::after {
             transform: scaleX(1);
         }
 
-        .skill-icon {
+        .skills__icon {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             color: var(--accent);
             opacity: 0.8;
         }
 
-        .skill-title {
+        .skills__title {
             font-family: var(--font-body);
             font-weight: 600;
             font-size: 1.2rem;
@@ -319,28 +355,28 @@
             letter-spacing: 0.05em;
         }
         
-        .skill-desc {
+        .skills__desc {
             font-size: 0.9rem;
             color: var(--text-muted);
         }
 
         /* --- Experience (Minimal) --- */
-        .exp-list {
+        .experience__list {
             border-left: 1px solid rgba(255,255,255,0.1);
         }
 
-        .exp-item {
+        .experience__item {
             padding: 3rem 0 3rem 3rem;
             position: relative;
             border-bottom: 1px solid rgba(255,255,255,0.03);
             transition: transform 0.3s;
         }
 
-        .exp-item:hover {
+        .experience__item:hover {
             transform: translateX(10px);
         }
 
-        .exp-item::before {
+        .experience__item::before {
             content: '';
             position: absolute;
             left: -5px;
@@ -353,60 +389,62 @@
             transition: background 0.3s;
         }
 
-        .exp-item:hover::before {
+        .experience__item:hover::before {
             background: var(--accent);
             box-shadow: 0 0 10px var(--accent);
         }
 
-        .exp-year {
+        .experience__year {
             font-family: 'Courier New', monospace;
             color: var(--accent);
             font-size: 0.9rem;
+            font-weight: 600;
             margin-bottom: 0.5rem;
             display: block;
         }
 
-        .exp-role {
+        .experience__role {
             font-size: 2rem;
             font-weight: 400;
             margin-bottom: 0.2rem;
         }
 
-        .exp-company {
+        .experience__company {
             font-size: 1.1rem;
             color: var(--text-muted);
             font-family: var(--font-body);
         }
 
         /* --- Poem --- */
-        .poem-section {
+        .poem {
             min-height: 100vh;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        .poem-wrapper {
+        .poem__wrapper {
             max-width: 720px;
         }
 
-        .poem-label {
+        .poem__label {
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: var(--accent);
+            font-weight: 600;
             margin-bottom: 3rem;
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .poem-label::before {
+        .poem__label::before {
             content: '';
             width: 30px;
             height: 1px;
             background: var(--accent);
         }
 
-        .poem-text {
+        .poem__text {
             font-size: 0.98rem;
             line-height: 2;
             color: rgba(255,255,255,0.55);
@@ -414,15 +452,43 @@
             max-width: none;
         }
 
-        .poem-text .hl {
+        .poem__text .poem__highlight {
             color: var(--text-main);
         }
 
-        .poem-author {
+        .poem__author {
             margin-top: 3rem;
             font-size: 0.9rem;
             color: var(--accent);
+            font-weight: 600;
             letter-spacing: 0.1em;
+        }
+
+        .poem__expand {
+            margin-top: 1.5rem;
+        }
+
+        .poem__expand-summary {
+            cursor: pointer;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            list-style: none;
+        }
+
+        .poem__expand-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .poem__expand-summary::before {
+            content: '+ ';
+        }
+
+        .poem__expand[open] .poem__expand-summary::before {
+            content: '- ';
         }
 
         /* --- Footer --- */
@@ -431,7 +497,7 @@
             justify-content: flex-end;
         }
 
-        .contact-cta {
+        .footer__cta {
             font-size: clamp(3rem, 6vw, 6rem);
             line-height: 1;
             font-family: var(--font-display);
@@ -439,13 +505,13 @@
             max-width: 800px;
         }
 
-        .social-row {
+        .footer__social-row {
             display: flex;
             gap: 2rem;
             flex-wrap: wrap;
         }
 
-        .social-link {
+        .footer__social-link {
             text-decoration: none;
             color: var(--text-main);
             font-size: 1.2rem;
@@ -458,7 +524,7 @@
             overflow: hidden;
         }
 
-        .social-link::before {
+        .footer__social-link::before {
             content: '';
             position: absolute;
             top: 0;
@@ -471,21 +537,21 @@
             z-index: -1;
         }
 
-        .social-link:hover {
+        .footer__social-link:hover {
             border-color: var(--accent);
             color: #000; /* Contrast text on hover */
         }
 
-        .social-link:hover::before {
+        .footer__social-link:hover::before {
             transform: translateY(0);
         }
 
         /* --- Responsive --- */
         @media (max-width: 900px) {
-            .about-layout { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 10vw; }
+            .about__layout { grid-template-columns: 1fr; }
+            .hero__name { font-size: 10vw; }
             section { padding: 4rem 1.5rem; }
-            .cursor-dot, .cursor-outline { transform: translate(-50%, -50%); display: none; }
+            .cursor__dot, .cursor__outline { transform: translate(-50%, -50%); display: none; }
             body { cursor: auto; }
         }
     </style>
@@ -493,40 +559,40 @@
 <body>
 
     <!-- Background Layers -->
-    <div class="grid-bg"></div>
-    <div class="tech-orb orb-1"></div>
-    <div class="tech-orb orb-2"></div>
+    <div class="background__grid"></div>
+    <div class="background__orb background__orb--primary"></div>
+    <div class="background__orb background__orb--secondary"></div>
 
     <!-- Custom Cursor -->
-    <div class="cursor-dot" id="cursor-dot"></div>
-    <div class="cursor-outline" id="cursor-outline"></div>
+    <div class="cursor__dot" id="cursor__dot"></div>
+    <div class="cursor__outline" id="cursor__outline"></div>
 
     <main>
         <!-- HERO -->
-        <section class="hero container">
-            <div class="hero-subtitle fade-in-up" style="transition-delay: 0.1s;">
-		    System Software Architect<br> SoC Embedded &middot; Camera BSP/ISP &middot; GUI Application
+        <section class="hero layout__container">
+            <div class="hero__subtitle u-reveal u-reveal--delay-100">
+		    System Software Architect<br> SoC Embedded &middot; Camera ISP &middot; GUI Applications
             </div>
             
-            <div class="hero-title-wrapper fade-in-up" style="transition-delay: 0.2s;">
-                <h1 data-text="JAEHONG">JAEHONG</h1>
-                <h1 data-text="OH" class="accent-text" style="margin-top: -0.2em;">OH</h1>
+            <div class="hero__title-wrapper u-reveal u-reveal--delay-200">
+                <h1 data-text="JAE-HONG" class="hero__name">JAE-HONG</h1>
+                <h1 data-text="OH" class="hero__name text--accent hero__lastname">OH</h1>
             </div>
 
-            <p class="fade-in-up" style="transition-delay: 0.4s; margin-top: 2rem;">
+            <p class="u-reveal u-reveal--delay-400 hero__intro">
 	    Crafting high-performance software for the hardware edge. <br>
-                Specializing in <span style="color: var(--text-main)">Image Signal Processing</span> and 
-                <span style="color: var(--text-main)">Embedded Systems</span> optimization.
+                Specializing in <span class="hero__highlight">Image Signal Processing</span> and 
+                <span class="hero__highlight">Embedded Systems</span> optimization.
             </p>
         </section>
 
         <!-- ABOUT -->
-        <section class="about container">
-            <div class="about-layout">
-                <div class="fade-in-up">
-                    <h2 class="big-statement">
+        <section class="about layout__container">
+            <div class="about__layout">
+                <div class="u-reveal">
+                    <h2 class="about__statement">
                         Engineering at the <br>
-                        <span class="accent-text">Precision Limit</span>.
+                        <span class="text--accent">Precision Limit</span>.
                     </h2>
                     <p>
                         I don't just write code; I architect systems that interface directly with physical reality. 
@@ -534,10 +600,10 @@
                         in the pipeline. My work ensures stability in chaotic hardware environments.
                     </p>
                 </div>
-                <div class="code-snippet fade-in-up" style="transition-delay: 0.2s;">
-                    &gt; connection_status: <span style="color: #4caf50">STABLE</span><br>
+                <div class="about__terminal u-reveal u-reveal--delay-200">
+                    &gt; connection_status: <span class="about__terminal-highlight">STABLE</span><br>
                     &gt; kernel_version: 6.1.0-rt<br>
-                    &gt; isp_pipeline: <span style="color: var(--accent)">OPTIMIZED</span><br>
+                    &gt; isp_pipeline: <span class="about__terminal-highlight">OPTIMIZED</span><br>
                     &gt; loading_modules...<br>
                     &nbsp;&nbsp;[+] v4l2_subdev<br>
                     &nbsp;&nbsp;[+] dma_buf_sharing<br>
@@ -547,155 +613,157 @@
         </section>
 
         <!-- SKILLS -->
-        <section class="skills container">
-            <h4 class="fade-in-up" style="color: var(--accent); margin-bottom: 1rem;">Core Competencies</h4>
-            <div class="skills-grid fade-in-up" style="transition-delay: 0.2s;">
-                <article class="skill-card">
-                    <div class="skill-icon">◆</div>
-                    <h3 class="skill-title">Camera 3A</h3>
-                    <p class="skill-desc">AEC(Auto Exposure Control), AWB(Auto White Balance), AF(Auto Focus) algorithms designed for robust environmental adaptation.</p>
+        <section class="skills layout__container">
+            <h4 class="u-reveal skills__heading">Core Competencies</h4>
+            <div class="skills__grid u-reveal u-reveal--delay-200">
+                <article class="skills__card">
+                    <div class="skills__icon">◆</div>
+                    <h3 class="skills__title">Camera 3A</h3>
+                    <p class="skills__desc">AEC(Auto Exposure Control), AWB(Auto White Balance), AF(Auto Focus) algorithms designed for robust environmental adaptation.</p>
                 </article>
-                <article class="skill-card">
-                    <div class="skill-icon">◆</div>
-                    <h3 class="skill-title">ISP Tuning</h3>
-                    <p class="skill-desc">ISP Pipeline optimization for image sensor. Tuning color constancy and noise/sharpness for high-fidelity imaging.</p>
+                <article class="skills__card">
+                    <div class="skills__icon">◆</div>
+                    <h3 class="skills__title">ISP Tuning</h3>
+                    <p class="skills__desc">ISP Pipeline optimization for image sensor. Tuning color constancy and noise/sharpness for high-fidelity imaging.</p>
                 </article>
-                <article class="skill-card">
-                    <div class="skill-icon">◆</div>
-                    <h3 class="skill-title">Embedded Linux</h3>
-                    <p class="skill-desc">Kernel driver development, Device Trees, Yocto Project, and bootloader boot time optimization.</p>
+                <article class="skills__card">
+                    <div class="skills__icon">◆</div>
+                    <h3 class="skills__title">Embedded Linux</h3>
+                    <p class="skills__desc">Kernel driver development, Device Trees, Yocto Project, and bootloader boot time optimization.</p>
                 </article>
-                <article class="skill-card">
-                    <div class="skill-icon">◆</div>
-                    <h3 class="skill-title">System Architecture</h3>
-                    <p class="skill-desc">Designing scalable, low-latency software architectures for resource-constrained SoCs.</p>
+                <article class="skills__card">
+                    <div class="skills__icon">◆</div>
+                    <h3 class="skills__title">System Architecture</h3>
+                    <p class="skills__desc">Designing scalable, low-latency software architectures for resource-constrained SoCs.</p>
                 </article>
-                <article class="skill-card">
-                    <div class="skill-icon">◆</div>
-                    <h3 class="skill-title">Android Framework</h3>
-                    <p class="skill-desc">HAL implementation, NDK integration, and deeply customized Android builds.</p>
+                <article class="skills__card">
+                    <div class="skills__icon">◆</div>
+                    <h3 class="skills__title">Android Framework</h3>
+                    <p class="skills__desc">HAL implementation, NDK integration, and deeply customized Android builds.</p>
                 </article>
-                <article class="skill-card">
-                    <div class="skill-icon">◆</div>
-                    <h3 class="skill-title">Low-Level Debugging</h3>
-                    <p class="skill-desc">JTAG, GDB, logic analyzers. Solving problems where software meets silicon.</p>
+                <article class="skills__card">
+                    <div class="skills__icon">◆</div>
+                    <h3 class="skills__title">Low-Level Debugging</h3>
+                    <p class="skills__desc">JTAG, GDB, logic analyzers. Solving problems where software meets silicon.</p>
                 </article>
-                <article class="skill-card">
-                    <div class="skill-icon">◆</div>
-                    <h3 class="skill-title">Desktop & Web Apps</h3>
-                    <p class="skill-desc">.NET WPF for native Windows applications and Node.js for full-stack web solutions.</p>
+                <article class="skills__card">
+                    <div class="skills__icon">◆</div>
+                    <h3 class="skills__title">Desktop & Web Apps</h3>
+                    <p class="skills__desc">.NET WPF for native Windows applications and Node.js for full-stack web solutions.</p>
                 </article>
-                <article class="skill-card">
-                    <div class="skill-icon">◆</div>
-                    <h3 class="skill-title">Mobile Development</h3>
-                    <p class="skill-desc">Android application development with Kotlin — from UI to platform integration.</p>
+                <article class="skills__card">
+                    <div class="skills__icon">◆</div>
+                    <h3 class="skills__title">Mobile Development</h3>
+                    <p class="skills__desc">Android application development with Kotlin — from UI to platform integration.</p>
                 </article>
             </div>
         </section>
 
         <!-- EXPERIENCE -->
-        <section class="experience container">
-            <h4 class="fade-in-up" style="color: var(--accent); margin-bottom: 3rem;">Trajectory</h4>
-            <div class="exp-list">
-                <div class="exp-item fade-in-up">
-                    <span class="exp-year">2025 — PRESENT</span>
-                    <h3 class="exp-role">SoC Embedded Software</h3>
-                    <div class="exp-company">Staff Software Engineer / LG Electronics Inc.</div>
+        <section class="experience layout__container">
+            <h4 class="u-reveal experience__heading">Trajectory</h4>
+            <div class="experience__list">
+                <div class="experience__item u-reveal">
+                    <span class="experience__year">2025 — PRESENT</span>
+                    <h3 class="experience__role">SoC Embedded Software</h3>
+                    <div class="experience__company">Staff Software Engineer / LG Electronics Inc.</div>
                 </div>
-                <div class="exp-item fade-in-up" style="transition-delay: 0.1s;">
-                    <span class="exp-year">2017 — 2025</span>
-                    <h3 class="exp-role">Image Processing System</h3>
-                    <div class="exp-company">Senior Software Engineer / LG Electronics Inc.</div>
+                <div class="experience__item u-reveal u-reveal--delay-100">
+                    <span class="experience__year">2017 — 2025</span>
+                    <h3 class="experience__role">Image Processing System</h3>
+                    <div class="experience__company">Senior Software Engineer / LG Electronics Inc.</div>
                 </div>
-                <div class="exp-item fade-in-up" style="transition-delay: 0.2s;">
-                    <span class="exp-year">2013 — 2017</span>
-                    <h3 class="exp-role">ISP Tuning / 3A Algorithm</h3>
-                    <div class="exp-company">Junior Software Engineer / LG Electronics Inc.</div>
+                <div class="experience__item u-reveal u-reveal--delay-200">
+                    <span class="experience__year">2013 — 2017</span>
+                    <h3 class="experience__role">ISP Tuning / 3A Algorithm</h3>
+                    <div class="experience__company">Software Engineer / LG Electronics Inc.</div>
                 </div>
             </div>
         </section>
 
-        <section class="poem-section container">
-            <div class="poem-wrapper fade-in-up">
-                <div class="poem-label">A Poem I Live By</div>
-                <p class="poem-text">
-                    <span class="hl">Youth is not a time of life &mdash; it is a state of mind.</span>
+        <section class="poem layout__container">
+            <div class="poem__wrapper u-reveal">
+                <div class="poem__label">A Poem I Live By</div>
+                <p class="poem__text">
+                    <span class="poem__highlight">Youth is not a time of life &mdash; it is a state of mind.</span>
                     It is not a matter of red cheeks, red lips and supple knees.
                     It is a temper of the will; a quality of the imagination; a vigor of the emotions;
                     it is a freshness of the deep springs of life.
                 </p>
                 <br>
-                <p class="poem-text">
-                    Youth means a temperamental predominance of <span class="hl">courage over timidity</span>,
+                <p class="poem__text">
+                    Youth means a temperamental predominance of <span class="poem__highlight">courage over timidity</span>,
                     of the appetite for adventure over a life of ease.
                     This often exists in a man of fifty, more than in a boy of twenty.
-                    <span class="hl">Nobody grows old by merely living a number of years;
+                    <span class="poem__highlight">Nobody grows old by merely living a number of years;
                     people grow old by deserting their ideals.</span>
                 </p>
-                <br>
-                <p class="poem-text">
-                    Years may wrinkle the skin,
-                    but <span class="hl">to give up enthusiasm wrinkles the soul.</span>
-                    Worry, doubt, self-distrust, fear and despair &mdash;
-                    these are the long, long years that bow the head
-                    and turn the growing spirit back to dust.
-                </p>
-                <br>
-                <p class="poem-text">
-                    Whether seventy or sixteen, there is in every being&rsquo;s heart
-                    <span class="hl">a love of wonder</span>;
-                    the sweet amazement at the stars and starlike things and thoughts;
-                    the undaunted challenge of events,
-                    the unfailing childlike appetite for what comes next,
-                    and the joy in the game of life.
-                </p>
-                <br>
-                <p class="poem-text">
-                    <span class="hl">You are as young as your faith, as old as your doubt;
-                    as young as your self-confidence, as old as your fear,
-                    as young as your hope, as old as your despair.</span>
-                </p>
-                <br>
-                <p class="poem-text">
-                    In the central place of your heart there is a wireless station.
-                    So long as it receives messages of <span class="hl">beauty, hope, cheer, grandeur, courage,
-                    and power</span> from the earth, from men and from the Infinite
-                    &mdash; so long are you young.
-                </p>
-                <br>
-                <p class="poem-text">
-                    When the wires are all down
-                    and the central places of your heart are covered
-                    with the snows of pessimism and the ice of cynicism,
-                    then are you grown old, indeed.
-                </p>
-                <div class="poem-author">&mdash; Samuel Ullman</div>
+                <details class="poem__expand">
+                    <summary class="poem__expand-summary">Read Full Poem</summary>
+                    <p class="poem__text">
+                        Years may wrinkle the skin,
+                        but <span class="poem__highlight">to give up enthusiasm wrinkles the soul.</span>
+                        Worry, doubt, self-distrust, fear and despair &mdash;
+                        these are the long, long years that bow the head
+                        and turn the growing spirit back to dust.
+                    </p>
+                    <br>
+                    <p class="poem__text">
+                        Whether seventy or sixteen, there is in every being&rsquo;s heart
+                        <span class="poem__highlight">a love of wonder</span>;
+                        the sweet amazement at the stars and starlike things and thoughts;
+                        the undaunted challenge of events,
+                        the unfailing childlike appetite for what comes next,
+                        and the joy in the game of life.
+                    </p>
+                    <br>
+                    <p class="poem__text">
+                        <span class="poem__highlight">You are as young as your faith, as old as your doubt;
+                        as young as your self-confidence, as old as your fear,
+                        as young as your hope, as old as your despair.</span>
+                    </p>
+                    <br>
+                    <p class="poem__text">
+                        In the central place of your heart there is a wireless station.
+                        So long as it receives messages of <span class="poem__highlight">beauty, hope, cheer, grandeur, courage,
+                        and power</span> from the earth, from men and from the Infinite
+                        &mdash; so long are you young.
+                    </p>
+                    <br>
+                    <p class="poem__text">
+                        When the wires are all down
+                        and the central places of your heart are covered
+                        with the snows of pessimism and the ice of cynicism,
+                        then are you grown old, indeed.
+                    </p>
+                </details>
+                <div class="poem__author">&mdash; Samuel Ullman</div>
             </div>
         </section>
 
-        <section class="footer container">
-            <div class="fade-in-up">
-                <div class="hero-subtitle">Ready to Deploy</div>
-                <h2 class="contact-cta">
+        <section class="footer layout__container">
+            <div class="u-reveal">
+                <div class="footer__subtitle">Get in Touch</div>
+                <h2 class="footer__cta">
                     Let's engineer the <br>
-                    <span class="accent-text">future state.</span>
+                    <span class="text--accent">future state.</span>
                 </h2>
-                <div class="social-row">
-                    <a href="mailto:me@jaehongoh.com" class="social-link">Email</a>
-                    <a href="https://www.linkedin.com/in/jaehongoh" class="social-link" target="_blank">LinkedIn</a>
+                <div class="footer__social-row">
+                    <a href="mailto:me@jaehongoh.com" class="footer__social-link">Email</a>
+                    <a href="https://www.linkedin.com/in/jaehongoh" class="footer__social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </div>
             </div>
             
-            <div style="margin-top: auto; padding-top: 4rem; opacity: 0.3; font-size: 0.8rem;">
-                &copy; 2026 JAEHONG OH. SYSTEM STATUS: ONLINE.
+            <div class="footer__meta">
+                &copy; 2026 JAE-HONG OH. SYSTEM STATUS: ONLINE.
             </div>
         </section>
     </main>
 
     <script>
         // --- Cursor Logic ---
-        const cursorDot = document.getElementById('cursor-dot');
-        const cursorOutline = document.getElementById('cursor-outline');
+        const cursorDot = document.getElementById('cursor__dot');
+        const cursorOutline = document.getElementById('cursor__outline');
 
         window.addEventListener('mousemove', (e) => {
             const posX = e.clientX;
@@ -712,7 +780,7 @@
         });
 
         // Hover Interactions
-        const interactiveElements = document.querySelectorAll('a, .skill-card, .exp-item');
+        const interactiveElements = document.querySelectorAll('a, .skills__card, .experience__item');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursorOutline.style.width = '60px';
@@ -732,12 +800,14 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('u-reveal--visible');
                 }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+        document.querySelectorAll('.u-reveal').forEach((el) => {
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
