@@ -4,7 +4,7 @@ Software Engineer focused on camera systems, ISP pipelines, embedded Linux, and 
 
 ## Live Site
 
-- Portfolio: https://jae-hong-5.github.io
+- Portfolio: https://www.jaehongoh.com
 
 ## What I Build
 
