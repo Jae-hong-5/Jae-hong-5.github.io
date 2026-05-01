@@ -108,9 +108,9 @@
       .career-line p strong, .career-line.muted strong { color: var(--fg); }
       .career-line.muted span, .career-line.muted strong { color: var(--muted); }
       .poem-details { font-size: 0.82rem; line-height: 1.7; }
-      .poem-details summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: start; color: var(--fg); cursor: pointer; list-style: none; }
+      .poem-details summary { color: var(--fg); cursor: pointer; list-style: none; }
       .poem-details summary::-webkit-details-marker { display: none; }
-      .poem-details summary strong { color: var(--accent); font-weight: 400; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; white-space: nowrap; }
+      .poem-details summary strong { display: inline-block; margin-top: 10px; color: var(--accent); font-weight: 700; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; white-space: nowrap; }
       .poem-details summary strong::before { content: '+ '; }
       .poem-details[open] summary { margin-bottom: 14px; }
       .poem-details[open] summary strong::before { content: '- '; }
