@@ -17,7 +17,6 @@
     <link rel="alternate" hreflang="en" href="https://jaehongoh.com/" />
     <link rel="alternate" hreflang="ko" href="https://jaehongoh.com/" />
     <link rel="alternate" hreflang="x-default" href="https://jaehongoh.com/" />
-
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Jae-hong Oh" />
     <meta property="og:title" content="Jae-hong Oh (오재홍)" />
@@ -32,15 +31,10 @@
     <meta property="og:image:alt" content="Jae-hong Oh - System Software Engineer" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ko_KR" />
-
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Jae-hong Oh (오재홍)" />
-    <meta
-      name="twitter:description"
-      content="System software, embedded Linux, camera ISP, and edge systems."
-    />
+    <meta name="twitter:description" content="System software, embedded Linux, camera ISP, and edge systems." />
     <meta name="twitter:image" content="https://jaehongoh.com/og-image.png" />
-
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -54,10 +48,164 @@
         "sameAs": ["https://www.linkedin.com/in/jaehongoh"]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-DsTrF-MM.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BlTbAsRQ.css">
+    <style>
+      :root {
+        --bg: #ecead8;
+        --card: rgba(255, 255, 255, 0.5);
+        --fg: #1a1d16;
+        --muted: rgba(26, 29, 22, 0.55);
+        --rule: rgba(26, 29, 22, 0.22);
+        --accent: #3d6b1f;
+        --chip: rgba(61, 107, 31, 0.1);
+        --shadow: rgba(26, 29, 22, 0.08);
+        --mono: "JetBrains Mono", "SFMono-Regular", "Cascadia Code", "Liberation Mono", Menlo, Consolas, monospace;
+        color: var(--fg);
+        background: var(--bg);
+        font-family: var(--mono);
+        font-size: 16px;
+        font-synthesis: none;
+        line-height: 1.5;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      * { box-sizing: border-box; }
+      html, body { min-width: 320px; min-height: 100%; margin: 0; background: var(--bg); }
+      a { color: var(--fg); outline: none; -webkit-tap-highlight-color: transparent; }
+      a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+      ::selection { background: var(--chip); color: var(--fg); }
+      .card-stage { display: flex; min-height: 100svh; align-items: center; justify-content: center; padding: 40px 24px; }
+      .index-card { width: min(760px, 100%); overflow: hidden; border: 1px solid var(--rule); border-radius: 7px; background: var(--card); box-shadow: 0 18px 80px var(--shadow); }
+      .card-chrome { display: flex; min-height: 38px; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--rule); color: var(--muted); font-size: 0.74rem; }
+      .traffic { display: flex; gap: 8px; }
+      .traffic span { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+      .traffic span:first-child { background: #e06050; }
+      .traffic span:nth-child(2) { background: #e0b040; }
+      .card-chrome p { flex: 1; margin: 0 0 0 2px; }
+      .card-body { padding: 36px 40px 42px; }
+      .ascii-lockup { margin-bottom: 30px; }
+      .ascii-lockup pre { margin: 0; color: var(--accent); font-family: var(--mono); font-size: clamp(0.43rem, 1.45vw, 0.75rem); font-weight: 600; letter-spacing: 0; line-height: 1; overflow: hidden; }
+      .ascii-lockup p { margin: 14px 0 0; color: var(--muted); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; }
+      .ascii-lockup strong { color: var(--accent); font-weight: 600; }
+      .profile-table { margin-bottom: 34px; }
+      .profile-row, .career-line { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; padding: 6px 0; font-size: 0.82rem; line-height: 1.55; }
+      .profile-row { margin: 0; }
+      .profile-row span, .career-line time, .contact-list span { color: var(--muted); }
+      .profile-row strong { color: var(--fg); font-weight: 500; }
+      .accent { color: var(--accent) !important; }
+      .log-section { margin-bottom: 32px; }
+      .log-section h2 { margin: 0 0 10px; color: var(--muted); font-size: 0.82rem; font-weight: 400; }
+      .career-log, .poem-details, blockquote, .contact-list { border-left: 2px solid var(--rule); padding-left: 18px; }
+      .career-log { display: flex; flex-direction: column; gap: 14px; }
+      .career-line { grid-template-columns: 170px 110px minmax(0, 1fr); align-items: baseline; padding: 4px 0; margin: 0; }
+      .career-line span { color: var(--accent); }
+      .career-line p, .career-line strong { margin: 0; color: var(--fg); font-weight: 400; }
+      .career-line p { color: var(--muted); }
+      .career-line p strong, .career-line.muted strong { color: var(--fg); }
+      .career-line.muted span, .career-line.muted strong { color: var(--muted); }
+      .poem-details { font-size: 0.82rem; line-height: 1.7; }
+      .poem-details summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: start; color: var(--fg); cursor: pointer; list-style: none; }
+      .poem-details summary::-webkit-details-marker { display: none; }
+      .poem-details summary strong { color: var(--accent); font-weight: 400; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; white-space: nowrap; }
+      .poem-details summary strong::before { content: '+ '; }
+      .poem-details[open] summary { margin-bottom: 14px; }
+      .poem-details[open] summary strong::before { content: '- '; }
+      blockquote { margin: 0; border-left: 0; padding-left: 0; }
+      blockquote p { margin: 0 0 14px; color: var(--fg); }
+      cite { color: var(--muted); font-style: normal; }
+      .contact-list { display: flex; flex-direction: column; gap: 4px; font-size: 0.82rem; }
+      .contact-list p { display: grid; grid-template-columns: 80px minmax(0, 1fr); margin: 0; }
+      .contact-list a { text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; overflow-wrap: anywhere; }
+      .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 28px; padding: 0; list-style: none; }
+      .tag-list li { padding: 3px 8px; border-radius: 3px; background: var(--chip); color: var(--accent); font-size: 0.68rem; }
+      .card-footer { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.68rem; }
+      .card-footer i { display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.45em; border-radius: 50%; background: var(--accent); }
+      @media (max-width: 760px) {
+        .card-stage { align-items: flex-start; padding: 18px 12px; }
+        .card-body { padding: 28px 20px 30px; }
+        .profile-row, .career-line, .contact-list p, .card-footer { grid-template-columns: 1fr; gap: 4px; }
+        .career-log { gap: 16px; }
+        .card-footer { align-items: start; }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <main class="card-stage">
+      <section class="index-card" aria-labelledby="site-title">
+        <header class="card-chrome">
+          <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p>~/jaehongoh - index.card</p>
+          <span>80x40</span>
+        </header>
+        <div class="card-body">
+          <div class="ascii-lockup" aria-label="Jae-hong Oh">
+            <pre>  ███  ███  █████ █   █  ███  █   █  ████        ███  █   █
+    █ █   █ █     █   █ █   █ ██  █ █           █   █ █   █
+    █ █████ ████  █████ █   █ █ █ █ █  ██       █   █ █████
+█   █ █   █ █     █   █ █   █ █  ██ █   █       █   █ █   █
+ ███  █   █ █████ █   █  ███  █   █  ████        ███  █   █</pre>
+            <p>indexed <strong>2026.05</strong> / jaehongoh.com</p>
+          </div>
+          <div class="profile-table" aria-label="Profile">
+            <p class="profile-row"><span>name</span><strong>Jae-hong Oh (오재홍)</strong></p>
+            <p class="profile-row"><span>role</span><strong>Software architect / camera engineer</strong></p>
+            <p class="profile-row"><span>based</span><strong>Seoul</strong></p>
+            <p class="profile-row"><span>working_on</span><strong>Robust architectures and calm interfaces for complicated software.</strong></p>
+            <p class="profile-row"><span>signal</span><strong class="accent">email works best</strong></p>
+          </div>
+          <section class="log-section" aria-labelledby="career-title">
+            <h2 id="career-title">$ tac ./career.log</h2>
+            <div class="career-log">
+              <p class="career-line muted"><span>+ edu/</span><time>2026</time><strong>Carnegie Mellon - Software Architect Course.</strong></p>
+              <article class="career-line">
+                <span>ch.03 platform/</span><time>2021-2026</time>
+                <p><strong>CTO Software</strong> SoC software for automotive and robotics, ROS2/DDS, tuning simulators, custom AE/AWB, and camera test automation.</p>
+              </article>
+              <article class="career-line">
+                <span>ch.02 mobile-awb/</span><time>2016-2020</time>
+                <p><strong>LG Mobile / Camera Solution</strong> LG-AWB algorithm design and porting across flagship and mid/low-tier generations. Triple-camera WB sync, flash LED calibration, flicker- and face-assisted AWB.</p>
+              </article>
+              <article class="career-line">
+                <span>ch.01 isp-3a/</span><time>2013-2015</time>
+                <p><strong>LG Mobile / ISP and 3A Algorithm</strong> Camera ISP and 3A tuning across device generations. Manual AE/AWB development, chipset ISP verification, and image-quality tooling.</p>
+              </article>
+              <p class="career-line muted"><span>+ joined/</span><time>2013</time><strong>LG Electronics - entered the company.</strong></p>
+            </div>
+          </section>
+          <section class="log-section" aria-labelledby="notes-title">
+            <h2 id="notes-title">$ cat ./note-i-live-by.md</h2>
+            <details class="poem-details">
+              <summary>
+                <span>Youth is not a time of life - it is a state of mind. It is not a matter of red cheeks, red lips and supple knees. It is a temper of the will; a quality of the imagination; a vigor of the emotions; it is a freshness of the deep springs of life.</span>
+                <strong>read full poem</strong>
+              </summary>
+              <blockquote>
+                <p>Youth means a temperamental predominance of courage over timidity, of the appetite for adventure over a life of ease. This often exists in a man of fifty, more than in a boy of twenty. Nobody grows old by merely living a number of years; people grow old by deserting their ideals.</p>
+                <p>Years may wrinkle the skin, but to give up enthusiasm wrinkles the soul. Worry, doubt, self-distrust, fear and despair - these are the long, long years that bow the head and turn the growing spirit back to dust.</p>
+                <p>Whether seventy or sixteen, there is in every being's heart a love of wonder; the sweet amazement at the stars and starlike things and thoughts; the undaunted challenge of events, the unfailing childlike appetite for what comes next, and the joy in the game of life.</p>
+                <p>You are as young as your faith, as old as your doubt; as young as your self-confidence, as old as your fear, as young as your hope, as old as your despair.</p>
+                <p>In the central place of your heart there is a wireless station. So long as it receives messages of beauty, hope, cheer, grandeur, courage, and power from the earth, from men and from the Infinite - so long are you young.</p>
+                <p>When the wires are all down and the central places of your heart are covered with the snows of pessimism and the ice of cynicism, then are you grown old, indeed.</p>
+                <cite>Samuel Ullman</cite>
+              </blockquote>
+            </details>
+          </section>
+          <section class="log-section" aria-labelledby="contact-title">
+            <h2 id="contact-title">$ cat ./contact</h2>
+            <div class="contact-list">
+              <p><span>email</span><a href="mailto:me@jaehongoh.com">me@jaehongoh.com</a></p>
+              <p><span>linkedin</span><a href="https://www.linkedin.com/in/jaehongoh" target="_blank" rel="noreferrer">linkedin.com/in/jaehongoh</a></p>
+            </div>
+          </section>
+          <ul class="tag-list" aria-label="Topics">
+            <li>#camera-isp</li><li>#3a-algorithms</li><li>#awb</li><li>#soc-software</li><li>#ros2</li><li>#architecture</li><li>#c-cpp</li><li>#seoul</li>
+          </ul>
+          <footer class="card-footer">
+            <span>jaehongoh.com</span>
+            <span><i aria-hidden="true"></i> online / updated 2026.05.01</span>
+          </footer>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
